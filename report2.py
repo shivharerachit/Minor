@@ -1,6 +1,5 @@
 from reportlab.lib.pagesizes import letter
 from reportlab.pdfgen import canvas
-# from reportlab.lib.utils import ImageReader
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Table, TableStyle, Spacer, Image
 from reportlab.lib import colors
 from reportlab.lib.styles import getSampleStyleSheet
@@ -12,8 +11,6 @@ def generate_depreciation_graph(model_year, lower_price, higher_price):
     depreciation_rate = 0.12
     lower_values = [lower_price * ((1 - depreciation_rate) ** (year - model_year)) for year in years]
     higher_values = [higher_price * ((1 - depreciation_rate) ** (year - model_year)) for year in years]
-    
-    # plt.figure(figsize=(5, 3))
     plt.figure(figsize=(7, 4))
     plt.plot(years, lower_values, label='Lower Estimate', marker='o')
     plt.plot(years, higher_values, label='Higher Estimate', marker='o')
@@ -32,8 +29,6 @@ def generate_pdf_report(input_data, price_range, filename="Car_Price_Report.pdf"
     elements = []
     
     elements.append(Paragraph("Car Price Report", styles["Title"]))
-    # elements.append(Spacer(1, 12)) 
-    
     table_data = [["Attribute", "Value"]] + [[k, str(v)] for k, v in input_data.items()]
     table = Table(table_data, colWidths=[150, 250])
     table.setStyle(TableStyle([
@@ -46,25 +41,14 @@ def generate_pdf_report(input_data, price_range, filename="Car_Price_Report.pdf"
         ('GRID', (0, 0), (-1, -1), 1, colors.black)
     ]))
     elements.append(table)
-    # elements.append(Spacer(1, 12))
-    
     lower_price, higher_price = price_range
     elements.append(Paragraph(f"Predicted Price Range: INR {(lower_price/100000):.2f} L - INR {(higher_price/100000):.2f} L", styles["Heading2"]))
-    # elements.append(Paragraph(f"Lower Range: INR {lower_price:.2f}", styles["Normal"]))
-    # elements.append(Paragraph(f"Upper Range: INR {higher_price:.2f}", styles["Normal"]))
-    # elements.append(Spacer(1, 12))
-    
     generate_depreciation_graph(input_data["M-Year"], lower_price, higher_price)
-    # generate_pie_chart(input_data["Fuel-Type"], input_data["Transmission"])
     
     elements.append(Paragraph("Depreciation Graph:", styles["Heading2"]))
-    # elements.append(Spacer(1, 6))
-    # elements.append(ImageReader("depreciation.png"))
     image = Image("depreciation.png", width=400, height=230)
     image.hAlign = 'CENTER'
     elements.append(image)
-    
-    # elements.append(Spacer(2, 13))
     
     doc.build(elements)
     print(f"PDF report generated: {filename}")
