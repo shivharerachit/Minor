@@ -3,20 +3,6 @@
 // DO NOT COMMIT THIS TO PUBLIC REPOSITORIES WITH REAL KEYS
 
 // --- Configuration ---
-<<<<<<< HEAD
-
-
-
-=======
-const GOOGLE_API_KEY = 'AIzaSyBTmjV-J4Rasa6Ilvfgiba7vtoo8TTwhto'; // <--- PUT YOUR API KEY HERE
-const SEARCH_ENGINE_ID = '82e3682d693294970'; // <--- PUT YOUR SEARCH ENGINE ID (cx) HERE
-// Find a royalty-free placeholder image URL online or host your own
-const DEFAULT_CAR_IMAGE_URL = 'https://via.placeholder.com/400x300.png?text=Car+Image+Not+Found'; // Example placeholder
-
-const GOOGLE_API_URL = 'https://www.googleapis.com/customsearch/v1';
-const NUM_RESULTS_TO_CHECK = 5; // How many results to check for a valid image URL
->>>>>>> 09e19f16b8682d20ee766ffb696ebacbcb2ac240
-
 // --- DOM Elements ---
 const brandInput = document.getElementById('carBrand');
 const modelInput = document.getElementById('carModel');
