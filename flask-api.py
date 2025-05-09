@@ -12,6 +12,8 @@ from reportlab.lib import colors
 from io import BytesIO
 import json  
 import base64
+from flask_cors import CORS
+
 
 
 current_year = datetime.now().year
@@ -147,6 +149,7 @@ def generate_combined_response(input_data):
 
 
 app = Flask(__name__)
+CORS(app, resources={r"/*": {"origins": ["http://localhost:5174"]}})
 
 @app.route('/process_car', methods=['POST'])
 def process_car():

@@ -1,0 +1,41 @@
+.result{
+    background: #0F1225;
+    z-index: 10;
+    height: 100vh;
+    width: 100vw;
+}
+
+h4{
+    text-align: center;
+    color: #fff;
+    font-size: 40px;
+    margin-top: 50px;
+}
+
+.head{
+    margin-top: -45rem;
+}
+
+.head h2{
+    color: #fff;
+}
+
+.head h4{
+    text-align: left;
+    margin-left: 20px;
+}
+
+.head button{
+    margin-left: 650px;
+    background-color: #8f9ae4;
+    font-size: 20px;
+    border-radius: 20px;
+    padding: 15px;
+    border: 2px solid black;
+}
+
+.head button:hover{
+    background-color: #252b4f;
+    color: white;
+    border: 2px solid white;
+}
