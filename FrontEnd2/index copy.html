@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Image Finder (Google API)</title>
+    <link rel="stylesheet" href="style.css"> <!-- Assuming you have basic styles -->
+</head>
+<body>
+    <h1>Find a Car Image using Google API</h1>
+
+    <!-- <div class="warning">
+        <strong>Warning:</strong> For demo purposes only. Do not use client-side API keys in production. Regenerate keys if exposed.
+    </div> -->
+
+    <div className="input-container">
+        <label for="carBrand">Brand:</label>
+        <input type="text" id="carBrand" placeholder="e.g., Honda">
+    </div>
+
+    <div className="input-container">
+        <label for="carModel">Model:</label>
+        <input type="text" id="carModel" placeholder="e.g., Civic Type R">
+    </div>
+
+    <button id="searchButton">Find Image</button>
+
+    <div id="statusMessage"></div>
+
+    <!-- THIS is where YOUR script will put the single image -->
+    <div className="image-container">
+        <img id="carImage" src="" alt="Car image will appear here">
+    </div>
+
+    <!-- We use script.js to handle the logic -->
+    <script src="script.js"></script>
+    <script src="config.js"></script>
+
+    <!-- DO NOT include the <script async src="cse.google.com..."> or <div class="gcse-search"> here -->
+</body>
+</html>

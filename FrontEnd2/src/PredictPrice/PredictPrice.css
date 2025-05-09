@@ -1,0 +1,16 @@
+.predictprice{
+    height:100%;
+    width:100%;
+    overflow-x: hidden;
+    /* background-color: #0C0E1A; */
+    background-color: #0f1225;
+}
+
+.footer{
+    text-align: center;
+    font-size: 15px;
+    color: #fff;
+    margin-top: 30px;
+    /* background-color: #0a1017; */
+}
+
