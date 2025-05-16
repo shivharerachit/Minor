@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, send_file, make_response
+from flask import Flask, request, jsonify, make_response
 import joblib
 import pandas as pd
 import numpy as np
@@ -21,7 +21,7 @@ matplotlib.use('Agg')
 
 
 def process_car_data(brand, model, year, km_driven, mileage, engine_capacity, seats, fuel_type, transmission):
-    model = joblib.load('Predict-Car-V2.pkl')
+    model = joblib.load('PredictCarPrice.pkl')
     print("CURRENT_YEAR : ", current_year - year)
     df = pd.DataFrame({
             'Brand': [brand],
@@ -149,7 +149,7 @@ def generate_combined_response(input_data):
 
 
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": ["http://localhost:5174"]}})
+CORS(app, resources={r"/*": {"origins": ["http://localhost:5173"]}})
 
 @app.route('/process_car', methods=['POST'])
 def process_car():

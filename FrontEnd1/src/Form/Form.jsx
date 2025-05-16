@@ -23,13 +23,13 @@ const CarPriceForm = () => {
     'Renault': ['Duster', 'KWID', 'Triber', 'Kiger', 'Captur'],
     'Mini': ['Cooper', 'Countryman', 'Clubman'],
     'Mercedes-Benz': ['C-Class', 'E-Class', 'S-Class', 'GLS', 'CLS', 'A-Class', 'GLC', 'GLE', 'Maybach'],
-    'Toyota': ['Innova', 'Fortuner', 'Glanza', 'Urban Cruiser', 'Camry', 'Yaris', 'Vellfire'],
+    'Toyota': ['Innova', 'Fortuner', 'Glanza', 'Urban Cruiser', 'Camry', 'Yaris', 'Vellfire', 'Corolla'],
     'Volkswagen': ['Polo', 'Vento', 'Tiguan', 'Taigun', 'Virtus'],
     'Honda': ['City', 'Civic', 'Amaze', 'Jazz', 'WR-V', 'CR-V'],
     'Mahindra': ['XUV500', 'Thar', 'Scorpio', 'Bolero', 'Marazzo', 'XUV300', 'Alturas', 'KUV100'],
     'Datsun': ['GO', 'redi-GO'],
     'Tata': ['Nexon', 'Harrier', 'Safari', 'Altroz', 'Tiago', 'Tigor', 'Hexa'],
-    'Kia': ['Seltos', 'Sonet', 'Carnival', 'EV6'],
+    'Kia': ['Seltos', 'Sonet', 'Carnival', 'EV6', 'Carens'],
     'BMW': ['X1', 'X3', 'X5', '5 Series', '7 Series', 'Z4', '3 Series'],
     'Audi': ['A4', 'A6', 'A8', 'Q3', 'Q5', 'Q7'],
     'Land Rover': ['Range Rover', 'Discovery', 'Defender', 'Velar'],
@@ -76,7 +76,7 @@ const CarPriceForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const requestData = {
+    const carDetails = {
         Brand: brand,
         Model: model,
         "M-Year": parseInt(year, 10),
@@ -95,14 +95,14 @@ const CarPriceForm = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(requestData),
+        body: JSON.stringify(carDetails),
       });
 
       if (response.ok) {
         setLoading(false);
         const result = await response.json();
         console.log('API Response:', result);
-        navigate('/result', { state: { result } });
+        navigate('/result', { state: { result , carDetails} });
       } else {
         console.error('API Error:', response.statusText);
         alert('Failed to fetch prediction. Please try again.');

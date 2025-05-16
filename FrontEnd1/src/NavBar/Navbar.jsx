@@ -5,7 +5,7 @@ import "./Navbar.css" ;
 
 const Navbar = () => {
     return (
-        <div className="navbar">
+        <div className="navbar" style={{ width:"100%"}}>
             {/* <img src="" alt="" /> */}
             <h3>AutoValuator</h3>
             <div className="menu">
